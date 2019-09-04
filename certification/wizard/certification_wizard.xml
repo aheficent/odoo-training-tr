@@ -1,0 +1,41 @@
+<!-- Copyright 2019 Patrick Wilson <patrickraymondwilson@gmail.com>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <act_window id="action_wizard_certification"
+            name="Search Certification"
+            res_model="certification.wizard"
+            view_mode="form" target="new"/>
+
+    <menuitem id="menu_wizard_certification"
+              parent="certification_menu"
+              action="action_wizard_certification"
+              sequence="20"/>
+
+    <record id="certification_wizard_form" model="ir.ui.view">
+        <field name="name">Certification Wizard Form</field>
+        <field name="model">certification.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Certification">
+                <sheet>
+                    <group>
+                        <field name="entity_id"/>
+                        <field name="date"/>
+                        <field name="certification_count"/>
+                        <field name="is_entity" invisible="1"/>
+                    </group>
+
+                </sheet>
+                <footer>
+                    <button string="Show" type="object"
+                   name="certification_entity_date_valid"
+                   class="btn-primary" attrs="{'invisible': [('is_entity','=',False)]}"/>
+                    <button string="Cancel" class="btn-default"
+                   special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

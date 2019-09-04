@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="identification_view_list" model="ir.ui.view">
+        <field name="name">Identity Documents</field>
+        <field name="model">identification.documents</field>
+        <field name="arch" type="xml">
+            <tree string="Identification">
+                <field name="employee_id"/>
+                <field name="number"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="identification_form" model="ir.ui.view">
+        <field name="name">Identity Documents</field>
+        <field name="model">identification.documents</field>
+        <field name="arch" type="xml">
+            <form string="Identification">
+                <sheet>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="number"/>
+                        <field name="type"/>
+                        <field name="date" string="Expiration Date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <record id="identification_action" model="ir.actions.act_window">
+         <field name="name">Identity Documents</field>
+         <field name="res_model">identification.documents</field>
+         <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        name="Identity Documents"
+        id="identification_menu"
+        action="identification_action"/>
+</odoo>
